@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom"],
+    "jsxImportSource": "@emotion/react"
   },
   "include": ["src", "tsconfig.paths.json", "craco.config.js", "images.d.ts"]
 }
