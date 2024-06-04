@@ -12,6 +12,6 @@ export interface Card {
 
 export interface AdBanner {
   title: string;
-  descrition: string;
+  description: string;
   link: string;
 }
