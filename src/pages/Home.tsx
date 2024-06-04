@@ -3,10 +3,15 @@ import Top from "@shared/Top";
 import { useEffect } from "react";
 
 import { getCards } from "@remote/card";
+import { getAdBanners } from "@remote/adBanner";
 
 function Home() {
   useEffect(() => {
     getCards().then((res) => {
+      console.log(res);
+    });
+
+    getAdBanners().then((res) => {
       console.log(res);
     });
   }, []);
