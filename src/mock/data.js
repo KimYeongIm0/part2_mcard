@@ -403,3 +403,11 @@ export const adBanners = [
     link: "/card/1A1vyiHfHyZagksPfvsS",
   },
 ];
+
+const addBanners = [
+  {
+    title: "Easy all 카드",
+    description: "기간이 얼마 남지 않았어요",
+    link: "/card/4xMGdg8PIlBGlTuJhxxp",
+  },
+];
