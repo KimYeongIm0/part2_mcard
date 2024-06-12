@@ -1,4 +1,5 @@
 import ListRow from "../components/shared/ListRow";
+import Badge from "../components/shared/Badge";
 
 import { useQuery, useInfiniteQuery } from "react-query";
 import { getCards } from "@remote/card";
@@ -46,19 +47,27 @@ export default function CardList() {
         hasMore={hasNextPage}
         loader={<></>}
         next={loadMore}
+        scrollThreshold="100px"
       >
-        {cards.map((card, index) => {
-          return (
-            <ListRow
-              key={card.id}
-              contents={
-                <ListRow.Texts title={`${index + 1}위`} subTitle={card.name} />
-              }
-              right={card.payback != null ? <div>{card.payback}</div> : null}
-              withArrow={true}
-            />
-          );
-        })}
+        <ul>
+          {cards.map((card, index) => {
+            return (
+              <ListRow
+                key={card.id}
+                contents={
+                  <ListRow.Texts
+                    title={`${index + 1}위`}
+                    subTitle={card.name}
+                  />
+                }
+                right={
+                  card.payback != null ? <Badge label={card.payback} /> : null
+                }
+                withArrow={true}
+              />
+            );
+          })}
+        </ul>
       </InfiniteScroll>
     </div>
   );
