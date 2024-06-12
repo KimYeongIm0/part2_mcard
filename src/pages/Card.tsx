@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { css } from "@emotion/react";
+import { motion } from "framer-motion";
 
 import { getCard } from "../remote/card";
 import Top from "../components/shared/Top";
@@ -31,13 +32,32 @@ export default function Card() {
       <ul>
         {benefit.map((text, index) => {
           return (
-            <ListRow
-              key={text}
-              left={<IconCheck />}
-              contents={
-                <ListRow.Texts title={`혜택 ${index + 1}`} subTitle={text} />
-              }
-            />
+            <motion.li
+              initial={{
+                opacity: 0,
+                translateX: -90,
+              }}
+              whileInView={{
+                //화면에 보여질 떄 애니메이션이 작동 됨, 밑에서 위로 다시 올라가 화면이 노출 될 떄 작동하게 할 수 있음
+                opacity: 1,
+                translateX: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.1, 0.25, 0.1],
+                delay: index * 0.1, //각 리스트를 순차적으로 보이게
+              }}
+              // animate={{ opacity: 1, translateX: 0 }}
+            >
+              <ListRow
+                as="div"
+                key={text}
+                left={<IconCheck />}
+                contents={
+                  <ListRow.Texts title={`혜택 ${index + 1}`} subTitle={text} />
+                }
+              />
+            </motion.li>
           );
         })}
       </ul>
