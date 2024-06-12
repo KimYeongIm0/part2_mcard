@@ -3,6 +3,8 @@ import { COLLECTIONS } from "./../constants/index";
 import {
   collection,
   getDocs,
+  getDoc,
+  doc,
   query,
   QuerySnapshot,
   limit,
@@ -31,4 +33,13 @@ export async function getCards(pageParam?: QuerySnapshot<Card>) {
     ...(doc.data() as Card), //Card 형식으로 형변환하는 작업을 수행
   }));
   return { items, lastVisible };
+}
+
+export async function getCard(id: string) {
+  const snapshot = await getDoc(doc(store, COLLECTIONS.CARD, id));
+
+  return {
+    id,
+    ...(snapshot.data() as Card),
+  };
 }

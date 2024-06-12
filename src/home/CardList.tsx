@@ -6,6 +6,7 @@ import { getCards } from "@remote/card";
 import { flatten } from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CardList() {
   const {
@@ -29,6 +30,8 @@ export default function CardList() {
 
   const cards = flatten(data?.pages.map(({ items }) => items));
   //배열안에 배열을 하나로 만들어주기 위함
+
+  const navigate = useNavigate();
 
   const loadMore = useCallback(() => {
     if (hasNextPage === false || isFetching) return;
@@ -64,6 +67,9 @@ export default function CardList() {
                   card.payback != null ? <Badge label={card.payback} /> : null
                 }
                 withArrow={true}
+                onClick={() => {
+                  navigate(`/card/${card.id}`);
+                }}
               />
             );
           })}
