@@ -31,7 +31,6 @@ function Form({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) {
       [e.target.name]: "true",
     }));
   }, []);
-
   const errors = useMemo(() => validate(formValues), [formValues]);
 
   const 제출가능한상태인가 = Object.keys(errors).length === 0;

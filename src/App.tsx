@@ -8,6 +8,7 @@ import Signin from "@pages/Signin";
 import Signup from "@pages/Signup";
 
 import Navbar from "@shared/Navbar";
+import Apply from "./pages/Apply";
 function App() {
   return (
     <BrowserRouter>
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" Component={HomePage} />
         <Route path="/signin" Component={Signin} />
         <Route path="/signup" Component={Signup} />
-
+        <Route path="/apply/:id" Component={Apply} />
         <Route path="/card/:id" Component={CardPage} />
         <Route path="/test" Component={TestPage} />
       </Routes>

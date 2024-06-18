@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
@@ -12,6 +12,8 @@ import Text from "../components/shared/Text";
 
 export default function Card() {
   const { id = "" } = useParams();
+
+  const navigate = useNavigate();
 
   const { data } = useQuery(["card,id"], () => getCard(id), {
     enabled: id !== "", //id가 빈값이 아닐 때만 호출
@@ -68,7 +70,12 @@ export default function Card() {
         </Flex>
       ) : null}
 
-      <FixedBottomButton label="신청하기" onClick={() => {}} />
+      <FixedBottomButton
+        label="신청하기"
+        onClick={() => {
+          navigate(`/apply/${id}`);
+        }}
+      />
     </div>
   );
 }
