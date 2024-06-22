@@ -36,8 +36,9 @@ const Button = styled.button<ButtonProps>(
   ({ disabled }) =>
     disabled
       ? css`
-          opacitiy: 0.26;
+          opacitiy: 1;
           cursur: inital;
+          background-color: #a5d6ff;
         `
       : undefined
 );
