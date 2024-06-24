@@ -1,24 +1,11 @@
 import { useState } from "react";
 
-import Terms from "../components/apply/Terms";
-import BasicInfo from "../components/apply/BasicInfo";
-import CardInfo from "../components/apply/CardInfo";
+import Apply from "../components/apply/index";
 
-import { ApplyValues } from "../models/apply";
+export default function ApplyPage() {
+  const [step, setStep] = useState(2);
 
-export default function Apply() {
-  const [step, setStep] = useState(1);
+  const handleSubmit = () => {};
 
-  const handleTermsChange = (terms: ApplyValues["terms"]) => {};
-
-  const handleBasicInfoChange = (
-    infoValues: Pick<ApplyValues, "salary" | "payDate" | "creditScore">
-  ) => {};
-  return (
-    <div>
-      {step === 0 ? <Terms onNext={handleTermsChange} /> : null}
-      {step === 1 ? <BasicInfo onNext={handleBasicInfoChange} /> : null}
-      {step === 2 ? <CardInfo /> : null}
-    </div>
-  );
+  return <Apply step={step} onSubmit={handleSubmit} />;
 }
