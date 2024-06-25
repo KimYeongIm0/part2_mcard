@@ -70,12 +70,12 @@ export default function Card() {
         </Flex>
       ) : null}
 
-      <FixedBottomButton
+      {/* <FixedBottomButton
         label="신청하기"
         onClick={() => {
           navigate(`/apply/${id}`);
         }}
-      />
+      /> */}
     </div>
   );
 }
