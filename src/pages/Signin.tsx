@@ -1,12 +1,12 @@
 import { useCallback } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+// import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "@remote/firebase";
+// import { auth } from "@remote/firebase";
 import Form from "@components/signin/Form";
 import { FormValues } from "@models/signin";
 import { useAlertContext } from "@contexts/AlertContext";
-import { FirebaseError } from "firebase/app";
+// import { FirebaseError } from "firebase/app";
 
 function SigninPage() {
   const { open } = useAlertContext();

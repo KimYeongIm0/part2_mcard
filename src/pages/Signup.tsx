@@ -1,5 +1,5 @@
 // import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { collection, doc, setDoc } from "firebase/firestore";
+// import { collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 import Form from "@components/signup/Form";
