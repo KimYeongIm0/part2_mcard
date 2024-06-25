@@ -1,11 +1,11 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 import Form from "@components/signup/Form";
 import { FormValues } from "@models/signup";
 
-import { auth, store } from "@remote/firebase";
+// import { auth, store } from "@remote/firebase";
 import { COLLECTIONS } from "@constants";
 
 function SignupPage() {
@@ -14,23 +14,23 @@ function SignupPage() {
   const handleSubmit = async (formValues: FormValues) => {
     const { email, password, name } = formValues;
 
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    // const { user } = await createUserWithEmailAndPassword(
+    //   auth,
+    //   email,
+    //   password
+    // );
 
-    await updateProfile(user, {
-      displayName: name,
-    });
+    // await updateProfile(user, {
+    //   displayName: name,
+    // });
 
-    const newUser = {
-      uid: user.uid,
-      email: user.email,
-      displayName: name,
-    };
+    // const newUser = {
+    //   uid: user.uid,
+    //   email: user.email,
+    //   displayName: name,
+    // };
 
-    await setDoc(doc(collection(store, COLLECTIONS.USER), user.uid), newUser);
+    // await setDoc(doc(collection(store, COLLECTIONS.USER), user.uid), newUser);
 
     navigate("/");
   };
