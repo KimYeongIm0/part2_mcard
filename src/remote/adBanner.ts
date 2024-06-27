@@ -8,7 +8,6 @@ export async function getAdBanners() {
   const adBannerSnapshot = await getDocs(
     collection(store, COLLECTIONS.ADBANNER)
   );
-
   return adBannerSnapshot.docs.map((doc) => ({
     id: doc.id,
     ...(doc.data() as AdBanner), //AdBanner 형식으로 형변환하는 작업을 수행
